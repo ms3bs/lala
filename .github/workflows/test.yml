@@ -1,0 +1,18 @@
+name: test
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  testing:
+    runs-on: windows-latest
+    steps:
+    - name: clone repo
+      uses: actions/checkout@v2
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.1
+    - run: MSBuild -ver
+    - run: cd ${{ github.workspace }}/prog3
+    - name: Run MSBuild
+      run: msbuild -m ${{ github.workspace }}/test.sln
