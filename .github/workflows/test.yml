@@ -13,6 +13,5 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
     - run: MSBuild -ver
-    - run: cd ${{ github.workspace }}/prog3
     - name: Run MSBuild
-      run: msbuild -m ${{ github.workspace }}/test.sln
+      run: msbuild -m ${{ github.workspace }}\lala\test.sln
